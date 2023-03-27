@@ -1,0 +1,14 @@
+{
+	"fastq_source_folder" : "/home/ubuntu/WGS_V2/G001_0056",
+	"fq_list" : "/home/ubuntu/WGS_V2/fastq_list2.txt",
+	"reference_folder" : "/home/ubuntu/WGS_V2/ucsc_goldenPath_analysisSet_grch38_HG002_altrevised_reference_v4.2.1",
+	"reference_name" : "HG002_hg38.analysisSet.fa",
+	"out" : "wgs_parabricks_output",
+	"output" : "output",
+	"bed_file" : "/home/ubuntu/WGS_V2/GIAB_benchmark_files/v4.2.1/HG002_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed",
+	"knownsite1vcf" : "/home/ubuntu/WGS_V2/GIAB_benchmark_files/v4.2.1/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf.gz",
+	"knownsite1vcftbi" : "/home/ubuntu/WGS_V2/GIAB_benchmark_files/v4.2.1/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf.gz.tbi",
+	"knownsite2vcf" : "/home/ubuntu/WGS_V2/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz",
+	"knownsite2vcftbi" : "/home/ubuntu/WGS_V2/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz.tbi",
+	"ref_bed" : "/home/ubuntu/WGS_V2/GIAB_benchmark_files/v4.2.1/HG002_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed"
+}
