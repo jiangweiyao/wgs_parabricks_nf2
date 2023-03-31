@@ -5,17 +5,12 @@ nextflow.enable.dsl=2
 fastq_source_folder = Channel.fromPath(params.fastq_source_folder, type: "dir", checkIfExists: true).toList()
 fq_list = file(params.fq_list)
 reference_folder = file(params.reference_folder)
-bed_file = file(params.bed_file)
-knownsite1vfc = file(params.knownsite1vcf)
-knownsite1vfctbi = file(params.knownsite1vcftbi)
-knownsite2vfc = file(params.knownsite2vcf)
-knownsite2vfctbi = file(params.knownsite2vcftbi)
 
-ref_bed = file(params.ref_bed)
+bed_file = file(params.bed_file)
 
 workflow {
-    fq2bam(fq_list, fastq_source_folder, reference_folder, params.reference_name, params.output, bed_file, knownsite1vfc, knownsite1vfctbi, knownsite2vfc, knownsite2vfctbi)
-    metrics(fq2bam.out[1], reference_folder, params.reference_name, ref_bed)
+    fq2bam(fq_list, fastq_source_folder, reference_folder, params.reference_name, params.output)
+    metrics(fq2bam.out[1], reference_folder, params.reference_name, bed_file)
 }
 
 process fq2bam {
@@ -30,11 +25,6 @@ process fq2bam {
     file(reference_folder)
     val(reference_name)
     val(output)
-    file(bed_file)
-    file(knownsite1vfc)
-    file(knownsite1vfctbi)
-    file(knownsite2vfc)
-    file(knownsite2vfctbi)
 
     output:
     file("${output}/*")
@@ -68,7 +58,7 @@ process metrics {
     file(input_bam)
     file(reference_folder)
     val(reference_name)
-    file(ref_bed)
+    file(bed_file)
     
 
     output:
@@ -80,7 +70,7 @@ mkdir -p mismatch_outs/mhists
 mkdir -p mismatch_outs/ihists
 
 awk -v OFS='\t' {'print \$1,\$2'} ${reference_folder}/${reference_name}.fai > ./grch38_bedtools.txt
-cp ${ref_bed} tmp.bed
+cp ${bed_file} tmp.bed
 bedtools intersect -a ${input_bam} -b tmp.bed -sorted > sample_HConly.bam
 
 ### loop through GC bins

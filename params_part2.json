@@ -5,10 +5,5 @@
 	"reference_name" : "HG002_hg38.analysisSet.fa",
 	"out" : "wgs_parabricks_output",
 	"output" : "part2",
-	"bed_file" : "/home/ubuntu/WGS_V2/GIAB_benchmark_files/v4.2.1/HG002_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed",
-	"knownsite1vcf" : "/home/ubuntu/WGS_V2/GIAB_benchmark_files/v4.2.1/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf.gz",
-	"knownsite1vcftbi" : "/home/ubuntu/WGS_V2/GIAB_benchmark_files/v4.2.1/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf.gz.tbi",
-	"knownsite2vcf" : "/home/ubuntu/WGS_V2/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz",
-	"knownsite2vcftbi" : "/home/ubuntu/WGS_V2/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz.tbi",
-	"ref_bed" : "/home/ubuntu/WGS_V2/GIAB_benchmark_files/v4.2.1/HG002_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed"
+	"bed_file" : "/home/ubuntu/WGS_V2/GIAB_benchmark_files/v4.2.1/HG002_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed"
 }
