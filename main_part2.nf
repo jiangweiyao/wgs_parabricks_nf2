@@ -54,37 +54,6 @@ process fq2bam {
         --out-bam ${output}/mark_dups.bam \
         --logfile ${output}/fq2bam.log
 
-    pbrun bammetrics \
-        --ref ${reference_folder}/${reference_name} \
-        --bam ${output}/mark_dups.bam \
-        --minimum-base-quality 2 \
-        --minimum-mapping-quality 5 \
-        --coverage-cap 250 \
-        --interval-file ${bed_file} \
-        --out-metrics-file ${output}/wgsmetrics_HConly.txt \
-        --num-threads 32 \
-        --logfile ${output}/bammetrics.log
-        
-    mkdir ${output}/collectmultiplemetrics -p
-
-    pbrun collectmultiplemetrics \
-        --ref ${reference_folder}/${reference_name} \
-        --bam ${output}/mark_dups.bam \
-        --out-qc-metrics-dir ${output}/collectmultiplemetrics \
-        --gen-all-metrics \
-        --bam-decompressor-threads 10 \
-        --logfile ${output}/collectmultiplemetrics.log
-
-    pbrun bqsr \
-        --ref ${reference_folder}/${reference_name} \
-        --in-bam ${output}/mark_dups.bam \
-        --knownSites ${knownsite2vfc} \
-        --knownSites ${knownsite1vfc} \
-        --interval-file ${bed_file} \
-        --out-recal-file ${output}/bqsr_recalibration_table.txt \
-        --logfile ${output}/bqsr.log
-
-
     """
 }
 
